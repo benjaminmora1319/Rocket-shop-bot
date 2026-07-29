@@ -19,11 +19,13 @@ def revisar():
             nom = str(i.get("name","")).lower()
             col = str(i.get("paint","normal")).lower()
             if n in nom and c in col:
-                m = "SALIO FENNEC BLACK! " + str(i.get("name")) + " " + str(i.get("paint"))
+                m = "🚨 ¡SALIÓ LO QUE BUSCABAS!\n"
+                m += "Objeto: " + str(i.get("name")) + "\n"
+                m += "Color: " + str(i.get("paint","Normal"))
                 requests.post(w, json={"content": m})
                 print("AVISO ENVIADO")
                 return
-        print("No esta aun")
+        print("Todavía no está disponible")
     except Exception as e:
         print(f"ERROR: {e}")
 
