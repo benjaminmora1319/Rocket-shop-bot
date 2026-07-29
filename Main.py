@@ -3,12 +3,11 @@ import os
 
 n = "fennec"
 c = "black"
-d = "ombre"
 w = os.getenv("WEBHOOK_URL")
 url = "https://api.tracker.gg/api/v2/rocket-league/standard/shop"
 h = {"User-Agent":"Mozilla/5.0"}
 
-def run():
+def revisar():
     if not w:
         print("Falta el secreto")
         return
@@ -19,15 +18,14 @@ def run():
         for i in items:
             nom = str(i.get("name","")).lower()
             col = str(i.get("paint","normal")).lower()
-            dec = str(i.get("decal","ninguna")).lower()
-            if n in nom and c in col and d in dec:
-                m = "ENCONTRADO: " + str(i.get("name")) + " | " + str(i.get("paint")) + " | " + str(i.get("decal"))
+            if n in nom and c in col:
+                m = "SALIO FENNEC BLACK! " + str(i.get("name")) + " " + str(i.get("paint"))
                 requests.post(w, json={"content": m})
                 print("AVISO ENVIADO")
                 return
-        print("No disponible aun")
+        print("No esta aun")
     except Exception as e:
         print(f"ERROR: {e}")
 
 if __name__ == "__main__":
-    run()
+    revisar()
