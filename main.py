@@ -1,17 +1,14 @@
 import requests
 import os
 from datetime import datetime
-
 OBJETIVO = {
     "nombre": "fennec",
     "color": "black",
     "calcomania": "ombre"
 }
-
 WEBHOOK = os.getenv("WEBHOOK_URL")
 URL_TIENDA = "https://api.tracker.gg/api/v2/rocket-league/standard/shop"
 CABECERAS = {"User-Agent": "Mozilla/5.0"}
-
 def revisar_tienda():
     if not WEBHOOK:
         print("Falta el secreto WEBHOOK_URL")
